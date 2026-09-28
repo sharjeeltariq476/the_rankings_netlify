@@ -1,0 +1,17 @@
+{
+  "name": "the-rankings-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo Netlify static build ready"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^23.0.0"
+  }
+}

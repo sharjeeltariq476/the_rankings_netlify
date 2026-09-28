@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2027 Rankings Analysis</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div><strong>Rankings Analysis</strong><span>Excel connected</span></div>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-view="overview">Overview</button>
+      <button class="nav-btn" data-view="qs">QS Ranking</button>
+      <button class="nav-btn" data-view="time">THE Ranking</button>
+      <button class="nav-btn" data-view="quality">Data Quality</button>
+    </nav>
+    <div class="source-card">
+      <span class="dot"></span>
+      <div><b>Live source</b><small id="source-file">Loading…</small></div>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">UNIVERSITY RANKINGS</p>
+        <h1 id="page-title">2027 Rankings Analysis</h1>
+        <p id="page-subtitle">Dashboard generated directly from the Excel workbook.</p>
+      </div>
+      <button class="refresh" onclick="reloadAll()">Refresh Excel Data</button>
+    </header>
+
+    <section id="overview" class="view active-view">
+      <div class="kpi-grid" id="kpis"></div>
+      <div class="grid-2">
+        <article class="panel">
+          <div class="panel-head"><div><h2>QS Overall Rank</h2><p>Year by year position</p></div></div>
+          <div id="qs-rank-trend" class="rank-list"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>THE Indicator Trend</h2><p>Latest available indicator scores</p></div></div>
+          <div id="time-bars" class="bars"></div>
+        </article>
+      </div>
+      <article class="panel notice-panel" id="formula-notice"></article>
+    </section>
+
+    <section id="qs" class="view">
+      <div class="section-title"><div><h2>QS Ranking</h2><p>Two-level headers mirror the Excel worksheet.</p></div><span class="editable-tag">Editable Excel data</span></div>
+      <div class="table-wrap"><table id="qs-table" class="data-table grouped"></table></div>
+      <p class="hint">Double click any non-formula data cell to edit, then press Enter to save.</p>
+    </section>
+
+    <section id="time" class="view">
+      <div class="section-title"><div><h2>THE Ranking</h2><p>Annual ranking and pillar scores from the workbook.</p></div><span class="editable-tag">Editable Excel data</span></div>
+      <div class="table-wrap"><table id="time-table" class="data-table"></table></div>
+      <p class="hint">Blank 2027 indicator cells remain blank because the workbook has no values for them yet.</p>
+    </section>
+
+    <section id="quality" class="view">
+      <div class="section-title"><div><h2>Data Quality</h2><p>Potential source issues are flagged, not automatically changed.</p></div></div>
+      <div id="quality-list" class="quality-list"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
